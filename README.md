@@ -10,7 +10,7 @@ with possibly more to come
 
 ### Requirements
 * [rofi blocks ](https://github.com/OmarCastro/rofi-blocks)
- this is what makes the rofi interaction dynamic.
+ this is what turns the rofi interaction dynamic.
 * [Jq](https://github.com/stedolan/jq) for Json processing.
 
 ### Usage
