@@ -31,7 +31,7 @@ it's also made easy to add a custom API to the list, move them to the /APIs dire
 #### Intercepting results
 this script does nothing but to grab your selection which can seem to be pointless on its own. </br>
 
-however, you can combine it with additional scripts to make things more interesting.</br> here is a non-exhaustive list of scripts that can blend well with it.
+however, you can combine it with additional scripts to make things more interesting.</br> here is a non-exhaustive list of scripts that blend well with it.
 
 * [play](https://github.com/BelkaDev/Mustream) songs/albums in Spotify
 * [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly available books
