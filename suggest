@@ -1,4 +1,6 @@
 #!/bin/bash
+# Requires:
+# rofi-blocks : https://github.com/OmarCastro/rofi-blocks
 # Author https://github.com/Belkadev
 
 [ -z "$1" ] && echo "suggest google|youtube|deezer|lastfm|books" && exit 1
