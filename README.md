@@ -39,7 +39,7 @@ however, you can combine it with additional scripts to make things more interest
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
 This is an example for handling the selection based on your search type, you can add it at the end </br>
-of the wrapping script:
+of the wrapper script:
 
 ``` Bash
 case "$API" in 
