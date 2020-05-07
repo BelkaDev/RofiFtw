@@ -15,7 +15,9 @@ youtube_api=$HOME/.local/bin/search/APIs/youtube # path to youtube API script
 googlebooks_api=$HOME/.local/bin/search/APIs/googlebooks # path to googlebooks API script
 ##################################################
 
+
 logfile="$(dirname $0)/logfile.tmp"
+[ ! -f "$logfile" ] && echo "run the wrapper script instead" && exit 1
 API=$(cat $logfile)
 rm "$logfile"
 case "$API" in 
@@ -24,7 +26,7 @@ case "$API" in
 "google") search="$google_api" ; allowExcess=true ;;
 "books") search="$googlebooks_api" ;;
 "lastfm") search="$lastfm_api" ;;
-*) echo "unrecognized API" && exit 1 ;;
+*) echo "unrecognized api" && exit 1 ;; # unreachable
 esac
 
 suggestions=""
