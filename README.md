@@ -1,6 +1,6 @@
 ## RofiFtw (Rofi for the web)
 
-Use rofi to perform web search with instantaneous search suggestions  </br>
+Use rofi to perform web search with instant search suggestions  </br>
 As of now, it supports the following websites:</br>
 * Youtube / Google 
 * Deezer / Lastfm for music search
@@ -28,7 +28,7 @@ options can include search language and other basic search parameters. </br>
 
 it's also made easy to add a custom API to the list, move them to the /APIs directory and follow the existing declarations.
 #### Intercepting results
-this script does nothing but to grab your selection which can be arguably pointless on its own. </br>
+this script does nothing but to grab your selection which can seem to be pointless on its own. </br>
 
 however, you can combine it with additional scripts to make things more interesting.</br> here is a non-exhaustive list of scripts that blend well with it.
 
