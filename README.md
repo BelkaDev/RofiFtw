@@ -18,14 +18,15 @@ Simply run the wrapper script for whichever API you'd want to handle the request
 <i>Example:</i> </br>
 ` suggest youtube`  </br>
 
-each of the APis can be run indpendently from your terminal: </br>
+
+of the APis can be run indpendently from your terminal: </br>
 ` youtube <search>`  </br> 
 returns youtube suggestions of your entry in plain/text.  </br></br>
  ![scrot](https://raw.githubusercontent.com/BelkaDev/Rofiftw/master/src/scrot)</br>
 
-you can configure each API in their own respective files. </br>
+you can configure all the APIs in their own respective files. </br>
 options can include search language and other basic search parameters. </br> </br>
-<b>note:</b> most of them barely include the most basic search functions, they aren't in any way complete </br>
+<b>note:</b> most of them barely include a basic search function, they aren't in any way complete </br>
 it's not hard to implement more options by reading through their documentations. </br>
 it's also made easy to add a custom API to the list, move them to the /APIs directory and follow the existing declarations.
 #### Intercepting results
