@@ -9,7 +9,7 @@
 # API documentation : https://www.last.fm/api/
 
 ## settings
-LASTFM_USER="belk5" # useless 
+LASTFM_USER="" # useless 
 LASTFM_API_KEY="" # get from here: https://www.last.fm/api/account/create
 search="album" # accepted: {album,track,artist}
 similar=false  # returns recs based on your search
@@ -33,6 +33,8 @@ URL="http://ws.audioscrobbler.com/2.0/?method=$1"; shift
 URL+="&api_key=$API_KEY&format=json"
 URL+="&$@"
 }
+
+[ -z LASTFM_API_KEY ] && echo "please enter your API key first" && exit 1
 ######## ARTISTS
 function searchArtist {
 URL= updateUrl "artist.search" "artist=$(urlencode "$1")"
