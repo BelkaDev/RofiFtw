@@ -7,7 +7,7 @@
 ## Author: https://github.com/BelkaDev
 
 ############# SETTINGS
-refreshrate=2 # refresh suggestions every n characters hit (recommended > 1 )
+refreshrate=1 # refresh suggestions every n characters hit 
 deezer_api=$HOME/.local/bin/search/APIs/deezer # path to deezer API script
 lastfm_api=$HOME/.local/bin/search/APIs/lastfm # path to lastfm API script
 google_api=$HOME/.local/bin/search/APIs/google # path to google API script
