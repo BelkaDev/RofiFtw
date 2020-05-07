@@ -25,7 +25,8 @@ returns youtube suggestions of your entry in plain/text.  </br></br>
 
 you can configure each API in their own respective files. </br>
 options can include search language and other basic search parameters. </br>
-
+<b>note:</br> most of them only include the most basic search functions, they aren't in any way complete </br>
+it's not hard to implement more options by reading through their documentations.
 it's also made easy to add a custom API to the list, move them to the /APIs directory and follow the existing declarations.
 #### Intercepting results
 this script does nothing but to grab your selection which can seem to be pointless on its own. </br>
