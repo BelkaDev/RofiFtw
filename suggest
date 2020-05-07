@@ -1,0 +1,19 @@
+#!/bin/bash
+# suggestions wrapper
+# 
+[ -z "$1" ] && echo "suggestion google|youtube|deezer|lastfm|books" && exit
+API="$1"
+# note: full path
+handler=$(echo $HOME/.local/bin/search/handler)
+case "$API" in 
+"google") prompt="Google" ;;
+"deezer") prompt="Deezer" ;;
+"youtube") prompt="Youtube" ;;
+"lastfm") prompt="Spotify" ;; 
+"books") prompt="Books" ;; 
+*) echo "Api not handled" && exit ;;
+esac 
+###############
+printf "$API" > "$(dirname $handler)/api.log"
+search="$(rofi -modi blocks -show blocks -blocks-wrap $handler -display-blocks "$prompt") & >/dev/null"
+$(out n $search)

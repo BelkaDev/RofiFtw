@@ -1,0 +1,95 @@
+#!/bin/bash
+# requires:
+# https://github.com/OmarCastro/rofi-blocks
+# jq (https://github.com/stedolan/jq)
+#	
+## realtime music suggestions for rofi
+## Author: https://github.com/BelkaDev
+
+
+############# SETTINGS
+refreshrate=2 # refresh suggestions every n characters hit (preferably > 1 )
+deezer_api=$HOME/.local/bin/search/APIs/deezer # full path to deezer API calls
+lastfm_api=$HOME/.local/bin/search/APIs/lastfm # full path to lastfm API calls
+google_api=$HOME/.local/bin/search/APIs/google # full path to google API calls
+youtube_api=$HOME/.local/bin/search/APIs/youtube # full path to youtube API calls
+googlebooks_api=$HOME/.local/bin/search/APIs/googlebooks # full path to googlebooks API calls
+##################################################
+
+API=$(cat "$(dirname $0)/api.log")
+
+case "$API" in 
+"deezer") search="$deezer_api" ;;
+"youtube") search="$youtube_api" ; allowExcess=true ;;
+"google") search="$google_api" ; allowExcess=true ;;
+"books") search="$googlebooks_api" ;;
+"lastfm") search="$lastfm_api" ;;
+*) notify-send "unsupported API specified" && exit 1 ;;
+esac
+
+
+suggestions=""
+default_custom_format="{{name_enum}}:{{value}}"
+custom_format="${format:-$default_custom_format}"
+
+urlencode() {
+echo ${1// /"%20"}
+}
+
+
+convertJson(){
+	echo "$1" | sed -e 's/\\/\\\\/g' -e 's/\"/\\"/g' -e 's/.*/"&"/' | paste -sd "," -
+}
+
+removeIllegal(){
+##### https://github.com/fogine/rofi-blocks/commit/9f45da637baf0f0d342c2e2957535564aa622164
+##### if you care about special characters, the patch above
+##### fixes the issue where special characters break rofi
+##### once installed you can get rid of this function
+	echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
+}
+
+fill_menu(){
+
+	JSON_LINES="$(convertJson "$suggestions")"
+
+ 	TEXT=$(cat <<EOF | tr -d "\n" | tr -d "\t"  
+{
+	"event format":"${custom_format}",
+	"lines":[ 
+	{"text":"[Select]"}, 
+	${JSON_LINES}
+	]
+}
+EOF
+)
+	printf '%s\n' "$TEXT"
+}
+
+echo '{"input action":"send"}'
+
+
+unset length i
+while IFS= read -r line; do
+((i++))
+[[ "$line" = 'SELECT'* ]] && selected=$(echo "$line" | cut -d':' -f2-) && break;
+print=$(echo "$line" | cut -d':' -f2-)
+#custom algorithm to reduce Api calls
+[[ "${#print}" < $length ]] && length="${#print}" && continue;
+length="${#print}"
+if (( i%refreshrate == 0 )) || [ ! -z $allowExcess ]; then suggestions="$(removeIllegal "$(bash $search $print)")"
+
+[[ "${line:0:1}" != '{' ]] && suggestions="$suggestions"$'\n' 
+# suggestions="${print}"$'\n'"$suggestions"  to print input instead of "select" (can be slow)
+fill_menu "$print"
+fi
+done
+[[ -z "$selected" ]] && selected=$print
+pkill rofi 
+selected="$(tr '[:lower:]' '[:upper:]' <<< ${selected:0:1})${selected:1}"
+
+play $selected 
+
+exit 0
+
+
