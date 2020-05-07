@@ -8,11 +8,11 @@
 
 ############# SETTINGS
 refreshrate=1 # refresh suggestions every n characters hit 
-deezer_api=$HOME/.local/bin/search/APIs/deezer # path to deezer API script
-lastfm_api=$HOME/.local/bin/search/APIs/lastfm # path to lastfm API script
-google_api=$HOME/.local/bin/search/APIs/google # path to google API script
-youtube_api=$HOME/.local/bin/search/APIs/youtube # path to youtube API script
-googlebooks_api=$HOME/.local/bin/search/APIs/googlebooks # path to googlebooks API script
+deezer_api=$(dirname $0)/APIs/deezer # path to deezer API script
+lastfm_api=$(dirname $0)/APIs/lastfm # path to lastfm API script
+google_api=$(dirname $0)/APIs/google # path to google API script
+youtube_api=$(dirname $0)/APIs/youtube # path to youtube API script
+googlebooks_api=$(dirname $0)/APIs/googlebooks # path to googlebooks API script
 ##################################################
 
 
@@ -45,7 +45,7 @@ removeIllegal(){
 ##### https://github.com/fogine/rofi-blocks/commit/9f45da637baf0f0d342c2e2957535564aa622164
 ##### if you care about special characters, the patch above
 ##### fixes the issue in which they break rofi
-##### once installed you can ommit this function 
+##### once installed you can omit this function 
 echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
 }
 
