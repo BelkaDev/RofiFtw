@@ -24,7 +24,7 @@ case "$API" in
 "google") search="$google_api" ; allowExcess=true ;;
 "books") search="$googlebooks_api" ;;
 "lastfm") search="$lastfm_api" ;;
-*) notify-send "unsupported API specified" && exit 1 ;;
+*) echo "unrecognized API" && exit 1 ;;
 esac
 
 suggestions=""
