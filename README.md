@@ -14,7 +14,7 @@ with possibly more to come
 * [Jq](https://github.com/stedolan/jq) for Json processing.
 
 ### Usage
-Simply run the wrapper script for whichever API you want to handle the request </br>
+Simply run the wrapper script for whichever API you'd want to handle the request </br>
 <i>Example:</i> </br>
 ` suggest youtube`  </br>
 
