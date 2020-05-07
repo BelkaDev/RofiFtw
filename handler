@@ -17,7 +17,7 @@ googlebooks_api=$HOME/.local/bin/search/APIs/googlebooks # path to googlebooks A
 
 logfile="$(dirname $0)/logfile.tmp"
 API=$(cat $logfile)
-
+rm "$logfile"
 case "$API" in 
 "deezer") search="$deezer_api" ;;
 "youtube") search="$youtube_api" ; allowExcess=true ;;
@@ -42,8 +42,8 @@ convertJson(){
 removeIllegal(){
 ##### https://github.com/fogine/rofi-blocks/commit/9f45da637baf0f0d342c2e2957535564aa622164
 ##### if you care about special characters, the patch above
-##### fixes the issue where special characters break rofi
-##### once installed you can get rid of this function
+##### fixes the issue in which they break rofi
+##### once installed you can ommit this function 
 echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
 }
 

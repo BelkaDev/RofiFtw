@@ -1,6 +1,6 @@
 #!/bin/bash
 # requires jq
-# Author: https://github.com/BelkaDev
+# Author: https://github.com/Belkadev
 
 urlencode() {
 echo ${1// /"%20"}
