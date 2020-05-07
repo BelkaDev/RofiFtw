@@ -27,7 +27,7 @@ you can configure each API in their own respective files. </br>
 options can include search language and other basic search parameters. </br>
 
 it's also made easy to add a custom API to the list, move them to the /APIs directory and follow the existing declarations.
-##### Intercepting results
+#### Intercepting results
 this script does nothing but to grab your selection which can be arguably pointless on its own. </br>
 
 however, you can combine it with additional scripts to make things more interesting.</br> here is a non-exhaustive list of scripts that blend well with it.
@@ -36,7 +36,7 @@ however, you can combine it with additional scripts to make things more interest
 * [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly availble books
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
-### installation
+### Installation
 ```
 git clone https://github.com/BelkaDev/RofiFtw.git ~/RofiFtw && cd ~/RofiFtw
 chmod +x *
