@@ -4,6 +4,7 @@
 API="$1"
 #Full path to the handler script
 handler=$(dirname $0)/handler
+
  [ ! -f "$handler" ] && echo "invalid path to handler script" && exit 1
 case "$API" in 
 "google") prompt="Google: " ;;
