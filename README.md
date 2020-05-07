@@ -36,6 +36,18 @@ however, you can combine it with additional scripts to make things more interest
 * [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly available books
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
+This is an example for handling the selection based on your search type, you can add it at the end </br>
+of the wrapping script:
+
+``` Bash
+case "$API" in 
+"google")  $BROWSER "https://www.google.com/search?q=$result" ;; 
+"deezer" | "lastfm")  play $selection ;; 
+"youtube") youtube "$selection" ;;
+"books") getBooks  $selection ;; 
+esac
+```
+
 ### Installation
 ```
 git clone https://github.com/BelkaDev/RofiFtw.git ~/RofiFtw && cd ~/RofiFtw
