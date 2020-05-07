@@ -36,6 +36,18 @@ however, you can combine it with additional scripts to make things more interest
 * [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly available books
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
+This is an example for handling the selection based on your search type, you can add it at the end </br>
+of the wrapping script:
+
+``` Bash
+case "$API" in 
+"google")  $BROWSER "https://www.google.com/search?q=$result" ;; 
+"deezer" | "lastfm")  play $selection ;; 
+"youtube") youtube "$selection" ;;
+"books") getBooks  $selection ;; 
+esac
+```
+
 ### Installation
 ```
 git clone https://github.com/BelkaDev/RofiFtw.git ~/RofiFtw && cd ~/RofiFtw
@@ -44,9 +56,10 @@ chmod +x *
 move the folder content to your $PATH directory
 
 ### Bugs & issues
-* You may notice a small delay whilst processing the input</br>
-this can be fixed by increasing the refresh rate but will affect the average response time.</br>
-if you find a better workaround let me know
+* You may notice a small delay while processing the input:</br>
+this can be fixed by increasing the refresh rate (ie number of typed characters before sending the request) </br> which will affect the average response time.</br>
+At the time being it's linear and pretty straightforward.
+if you know a better / more complex algorithm let me know.
 * Special and non-utf characters cause rofi to break, so they are filtered by default. </br>
 If you care about displaying them, [this fork](https://github.com/fogine/rofi-blocks/tree/fix-%233-wide-unicode) fixes the issues.
 more instructions can be found in [the code](https://github.com/BelkaDev/RofiFtw/blob/master/handler)</br>
