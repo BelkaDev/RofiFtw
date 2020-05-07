@@ -33,7 +33,6 @@ this script does nothing but to grab your selection which can be arguably pointl
 however, you can combine it with additional scripts to make things more interesting.</br> here is a non-exhaustive list of scripts that blend well with it.
 
 * [play](https://github.com/BelkaDev/Mustream) songs/albums in Spotify
-</br>
 * [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly availble books
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
@@ -49,6 +48,6 @@ move the folder content to your $PATH location
 this can be fixed by increasing the refresh rate but will affect the average response time.</br>
 if you find any workaround let me know
 * special and non-utf characters cause rofi to break, so they are filtered by default. </br>
-If you care about displaying them, [this fork](https://github.com/fogine/rofi-blocks/tree/fix-%233-wide-unicode) fixes the issues </br>
+If you care about displaying them, [this fork](https://github.com/fogine/rofi-blocks/tree/fix-%233-wide-unicode) fixes the issues.
 more instructions can be found in [the code](https://github.com/BelkaDev/RofiFtw/blob/master/handler)</br>
 
