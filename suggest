@@ -1,22 +1,22 @@
 #!/bin/bash
-# suggestions wrapper
-# 
-[ -z "$1" ] && echo "suggestion google|youtube|deezer|lastfm|books" && exit 1
+
+[ -z "$1" ] && echo "suggest google|youtube|deezer|lastfm|books" && exit 1
 API="$1"
-#Note: full path
-handler=$HOME/.local/bin/search/handler
+#Full path to the handler script
+handler=$(dirname $0)/handler
+ [ ! -f "$handler" ] && echo "invalid path to handler script" && exit 1
 case "$API" in 
-"google") prompt="Google" ;;
-"deezer") prompt="Deezer" ;;
-"youtube") prompt="Youtube" ;;
-"lastfm") prompt="Spotify" ;; 
-"books") prompt="Books" ;; 
-*) echo "Api not recognized" && exit 1 ;;
+"google") prompt="Google: " ;;
+"deezer") prompt="Music: " ;;
+"youtube") prompt="Youtube: " ;;
+"lastfm") prompt="Music: " ;; 
+"books") prompt="Books: " ;; 
+*) echo "unrecognized API" && exit 1 ;;
 esac 
 ###############
-logfile="$(dirname $handler)/logfile.tmp"
+logfile="$(dirname $handler)/logfile.tmp" # logfile to communicate between two ends
 printf "$API" > "$logfile"
-rofi -modi blocks -show blocks -blocks-wrap $handler -display-blocks "$prompt" &>/dev/null
-result="$(cat $logfile)"
-echo "$result" && rm "$logfile"
+rofi -modi blocks -show blocks -blocks-wrap $handler -display-blocks "$prompt" 2>/dev/null
+[ -f $logfile ] && selection="$(cat "$logfile")" || exit 0
+echo "$selection"
 exit 0

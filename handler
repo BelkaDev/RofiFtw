@@ -9,7 +9,6 @@
 
 ############# SETTINGS
 refreshrate=2 # refresh suggestions every n characters hit (recommended > 1 )
-SelectMessage="[Select]"
 deezer_api=$HOME/.local/bin/search/APIs/deezer # path to deezer API script
 lastfm_api=$HOME/.local/bin/search/APIs/lastfm # path to lastfm API script
 google_api=$HOME/.local/bin/search/APIs/google # path to google API script
@@ -19,7 +18,7 @@ googlebooks_api=$HOME/.local/bin/search/APIs/googlebooks # path to googlebooks A
 
 logfile="$(dirname $0)/logfile.tmp"
 API=$(cat $logfile)
-
+rm $logfile
 
 case "$API" in 
 "deezer") search="$deezer_api" ;;
@@ -74,21 +73,18 @@ echo '{"input action":"send"}'
 unset length i
 while IFS= read -r line; do
 ((i++))
-if [[ "$line" = 'SELECT'* ]]; then 
-val=$(echo "$line" | cut -d':' -f2-)
-[[ "$val" = "$SelectMessage" ]] && selected="$print" || selected=$val
-break
-fi
+[[ "$line" = 'SELECT'* ]] && selected=$(echo "$line" | cut -d':' -f2-) && break;
 print=$(echo "$line" | cut -d':' -f2-)
 #custom algorithm to reduce Api calls
 [[ "${#print}" < $length ]] && length="${#print}" && continue;
 length="${#print}"
 if (( i%refreshrate == 0 )) || [ ! -z $allowExcess ]; then suggestions="$(removeIllegal "$(bash $search $print)")"
 
-[[ "${line:0:1}" != '{' ]] && suggestions="$SelectMessage"$'\n'"$suggestions"
+[[ "${line:0:1}" != '{' ]] && suggestions="${print}"$'\n'"$suggestions"
 fill_menu "$print"
 fi
 done
-[[ -z "$selected" ]] && selected=$print
 selected="$(tr '[:lower:]' '[:upper:]' <<< ${selected:0:1})${selected:1}"
-printf "$selected" >"$logfile"
+[ -z "$selected" ] && rm $logfile || printf "$selected" >"$logfile"
+exit 0
+
