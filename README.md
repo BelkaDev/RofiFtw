@@ -8,13 +8,12 @@ As of now, it supports the following websites:</br>
 
 with possibly more to come
 
-##### Requirements
+### Requirements
 * [rofi blocks ](https://github.com/OmarCastro/rofi-blocks)
  this is what makes the real-time interaction possible.
 * [Jq](https://github.com/stedolan/jq) for Json processing.
-</br>
-</br>
-##### Usage
+
+### Usage
 Simply run the wrapper script for whichever API you'd want to handle the request </br>
 <i>Example:</i> </br>
 ` suggest youtube`  </br>
@@ -38,14 +37,14 @@ however, you can combine it with additional scripts to make things more interest
 * [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly availble books
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
-##### installation
+### installation
 ```
 git clone https://github.com/BelkaDev/RofiFtw.git ~/RofiFtw && cd ~/RofiFtw
 chmod +x *
 move the folder content to your $PATH location
 ```
 
-##### Bugs & issues
+### Bugs & issues
 * You may notice a small delay whilst processing the input</br>
 this can be fixed by increasing the refresh rate but will affect the average response time.</br>
 if you find any workaround let me know
