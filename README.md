@@ -40,8 +40,8 @@ however, you can combine it with additional scripts to make things more interest
 ```
 git clone https://github.com/BelkaDev/RofiFtw.git ~/RofiFtw && cd ~/RofiFtw
 chmod +x *
-move the folder content to your $PATH location
 ```
+move the folder content to your $PATH directory
 
 ### Bugs & issues
 * You may notice a small delay whilst processing the input</br>
