@@ -33,7 +33,7 @@ this script does nothing but to grab your selection which can seem to be pointle
 however, you can combine it with additional scripts to make things more interesting.</br> here is a non-exhaustive list of scripts that blend well with it.
 
 * [play](https://github.com/BelkaDev/Mustream) songs/albums in Spotify
-* [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly availble books
+* [getbook](https://github.com/BelkaDev/scropts/blob/master/getBook) download publicly available books
 * [youtubemenu](https://github.com/BelkaDev/scropts/blob/master/youtube) a youtube dmenu fetcher with thumbnails support
 
 ### Installation
