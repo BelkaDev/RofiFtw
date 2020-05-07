@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author https://github.com/Belkadev
 
 [ -z "$1" ] && echo "suggest google|youtube|deezer|lastfm|books" && exit 1
 API="$1"
