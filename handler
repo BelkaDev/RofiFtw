@@ -6,7 +6,6 @@
 ## realtime suggestions for rofi
 ## Author: https://github.com/BelkaDev
 
-
 ############# SETTINGS
 refreshrate=2 # refresh suggestions every n characters hit (recommended > 1 )
 deezer_api=$HOME/.local/bin/search/APIs/deezer # path to deezer API script
@@ -18,7 +17,6 @@ googlebooks_api=$HOME/.local/bin/search/APIs/googlebooks # path to googlebooks A
 
 logfile="$(dirname $0)/logfile.tmp"
 API=$(cat $logfile)
-rm $logfile
 
 case "$API" in 
 "deezer") search="$deezer_api" ;;
@@ -29,7 +27,6 @@ case "$API" in
 *) notify-send "unsupported API specified" && exit 1 ;;
 esac
 
-
 suggestions=""
 default_custom_format="{{name_enum}}:{{value}}"
 custom_format="${format:-$default_custom_format}"
@@ -37,7 +34,6 @@ custom_format="${format:-$default_custom_format}"
 urlencode() {
 echo ${1// /"%20"}
 }
-
 
 convertJson(){
 	echo "$1" | sed -e 's/\\/\\\\/g' -e 's/\"/\\"/g' -e 's/.*/"&"/' | paste -sd "," -
@@ -48,7 +44,7 @@ removeIllegal(){
 ##### if you care about special characters, the patch above
 ##### fixes the issue where special characters break rofi
 ##### once installed you can get rid of this function
-	echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
+echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
 }
 
 fill_menu(){
@@ -69,7 +65,6 @@ EOF
 
 echo '{"input action":"send"}'
 
-
 unset length i
 while IFS= read -r line; do
 ((i++))
@@ -87,4 +82,3 @@ done
 selected="$(tr '[:lower:]' '[:upper:]' <<< ${selected:0:1})${selected:1}"
 [ -z "$selected" ] && rm $logfile || printf "$selected" >"$logfile"
 exit 0
-
