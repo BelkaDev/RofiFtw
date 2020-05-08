@@ -31,7 +31,7 @@ case "$API" in
 "google") search="$google_api" ; allowExcess=true ;;
 "books") search="$googlebooks_api" ;;
 "lastfm") search="$lastfm_api" ;;
-"wikipedia") search="$wikipedia_api" ;;
+"wikipedia") search="$wikipedia_api" allowExcess=true ;;
 "amazon") search="$amazon_api"  ; allowExcess=true ;;
 "archwiki") search="$archwiki_api"  ; allowExcess=true ;;
 *) echo "unrecognized api" && exit 1 ;; # unreachable
