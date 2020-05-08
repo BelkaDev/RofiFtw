@@ -71,7 +71,7 @@ echo $tracks
 input="$*"
 case "$search" in
 "album") res=$(searchAlbum "$search") ;;
-"track") res=$(searchAlbum "$search") ;;
+"track") res=$(searchTrack "$search") ;;
 "artist") [[ "$recs" == "true" ]] && res=$(searchArtist "$search") ||  res=$(getRecs "$search") ;;
 
 *) exit 1 ;;
