@@ -48,7 +48,7 @@ case "$API" in
 "google")  $BROWSER "https://www.google.com/search?q=$result" ;; 
 "deezer" | "lastfm")  play $selection ;; 
 "youtube") youtube "$selection" ;;
-"books") getBooks  $selection ;; 
+"books") getBook  $selection ;; 
 esac
 ```
 
