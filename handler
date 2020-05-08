@@ -9,10 +9,12 @@
 ############# SETTINGS
 refreshrate=2 # refresh suggestions every n characters hit 
 ddg_api=$(dirname $0)/APIs/ddg # path to ddg API script
-deezer_api=$(dirname $0)/APIs/deezer # path to deezer API script
 lastfm_api=$(dirname $0)/APIs/lastfm # path to lastfm API script
+deezer_api=$(dirname $0)/APIs/deezer # path to deezer API script
 google_api=$(dirname $0)/APIs/google # path to google API script
+amazon_api=$(dirname $0)/APIs/amazon # path to amazon API script
 youtube_api=$(dirname $0)/APIs/youtube # path to youtube API script
+archwiki_api=$(dirname $0)/APIs/archwiki # path to archwiki API script
 wikipedia_api=$(dirname $0)/APIs/wikipedia # path to wikipedia API script
 googlebooks_api=$(dirname $0)/APIs/googlebooks # path to googlebooks API script
 ##################################################
@@ -30,6 +32,8 @@ case "$API" in
 "books") search="$googlebooks_api" ;;
 "lastfm") search="$lastfm_api" ;;
 "wikipedia") search="$wikipedia_api" ;;
+"amazon") search="$amazon_api"  ; allowExcess=true ;;
+"archwiki") search="$amazon_api"  ; allowExcess=true ;;
 *) echo "unrecognized api" && exit 1 ;; # unreachable
 esac
 
