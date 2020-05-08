@@ -33,7 +33,7 @@ case "$API" in
 "lastfm") search="$lastfm_api" ;;
 "wikipedia") search="$wikipedia_api" ;;
 "amazon") search="$amazon_api"  ; allowExcess=true ;;
-"archwiki") search="$amazon_api"  ; allowExcess=true ;;
+"archwiki") search="$archwiki_api"  ; allowExcess=true ;;
 *) echo "unrecognized api" && exit 1 ;; # unreachable
 esac
 
