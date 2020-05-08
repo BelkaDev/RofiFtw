@@ -3,9 +3,9 @@
 Use rofi to perform web search with instant search suggestions  </br>
 As of now, it supports the following websites:</br>
 * Youtube / Google 
+* Wikipedia
 * Deezer / Lastfm for music search
 * Google books for books search (duh) </br>
-
 with possibly more to come
 
 ![demo](https://raw.githubusercontent.com/BelkaDev/Rofiftw/master/src/demo.gif)</br>
