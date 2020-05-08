@@ -19,7 +19,7 @@ Simply run the wrapper script for whichever API you'd want to handle the request
 ` suggest youtube`  </br>
 
 
-of the APis can be run indpendently from your terminal: </br>
+Each of the APis can be run indpendently from your terminal: </br>
 ` youtube <search>`  </br> 
 returns youtube suggestions of your entry in plain/text.  </br></br>
  ![scrot](https://raw.githubusercontent.com/BelkaDev/Rofiftw/master/src/scrot)</br>
