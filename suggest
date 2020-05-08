@@ -3,7 +3,7 @@
 # rofi-blocks : https://github.com/OmarCastro/rofi-blocks
 # Author https://github.com/Belkadev
 
-[ -z "$1" ] && echo "suggest google|youtube|wikipedia|deezer|lastfm|books" && exit 1
+[ -z "$1" ] && echo "suggest google|youtube|ddg|wikipedia|deezer|lastfm|books" && exit 1
 API="$1"
 #Full path to the handler script
 handler=$(dirname $0)/handler
