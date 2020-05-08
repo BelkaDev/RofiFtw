@@ -8,6 +8,7 @@
 
 ############# SETTINGS
 refreshrate=2 # refresh suggestions every n characters hit 
+ddg_api=$(dirname $0)/APIs/ddg # path to ddg API script
 deezer_api=$(dirname $0)/APIs/deezer # path to deezer API script
 lastfm_api=$(dirname $0)/APIs/lastfm # path to lastfm API script
 google_api=$(dirname $0)/APIs/google # path to google API script
@@ -22,6 +23,7 @@ logfile="$(dirname $0)/logfile.tmp"
 API=$(cat $logfile)
 rm "$logfile"
 case "$API" in 
+"ddg") search="$ddg_api" ; allowExcess=true ;; 
 "deezer") search="$deezer_api" ;;
 "youtube") search="$youtube_api" ; allowExcess=true ;;
 "google") search="$google_api" ; allowExcess=true ;;

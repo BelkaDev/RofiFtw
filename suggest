@@ -16,6 +16,7 @@ case "$API" in
 "lastfm") prompt="Music: " ;; 
 "books") prompt="Books: " ;; 
 "wikipedia") prompt="wikipedia: " ;; 
+"ddg") prompt="ddg: " ;; 
 *) echo "unrecognized API" && exit 1 ;;
 esac 
 ###############
