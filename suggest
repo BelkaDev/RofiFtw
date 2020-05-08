@@ -15,6 +15,7 @@ case "$API" in
 "youtube") prompt="Youtube: " ;;
 "lastfm") prompt="Music: " ;; 
 "books") prompt="Books: " ;; 
+"wikipedia") prompt="wikipedia: " ;; 
 *) echo "unrecognized API" && exit 1 ;;
 esac 
 ###############

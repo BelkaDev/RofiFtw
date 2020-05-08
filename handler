@@ -7,11 +7,12 @@
 ## Author: https://github.com/BelkaDev
 
 ############# SETTINGS
-refreshrate=1 # refresh suggestions every n characters hit 
+refreshrate=3 # refresh suggestions every n characters hit 
 deezer_api=$(dirname $0)/APIs/deezer # path to deezer API script
 lastfm_api=$(dirname $0)/APIs/lastfm # path to lastfm API script
 google_api=$(dirname $0)/APIs/google # path to google API script
 youtube_api=$(dirname $0)/APIs/youtube # path to youtube API script
+wikipedia_api=$(dirname $0)/APIs/wikipedia # path to wikipedia API script
 googlebooks_api=$(dirname $0)/APIs/googlebooks # path to googlebooks API script
 ##################################################
 
@@ -26,6 +27,7 @@ case "$API" in
 "google") search="$google_api" ; allowExcess=true ;;
 "books") search="$googlebooks_api" ;;
 "lastfm") search="$lastfm_api" ;;
+"wikipedia") search="$wikipedia_api" ;;
 *) echo "unrecognized api" && exit 1 ;; # unreachable
 esac
 

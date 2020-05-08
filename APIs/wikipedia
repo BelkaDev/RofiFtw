@@ -1,0 +1,16 @@
+#!/bin/bash
+# requires jq
+# Author: https://github.com/BelkaDev
+
+urlencode() {
+echo ${1// /"%20"}
+}
+
+#settings
+lang="en"
+
+#######
+
+url="https://$lang.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=$(urlencode "$*")"
+res=$(jq -r '.query["search"][] |  "\(.title)"' <<< "$(curl -s "$url" &)" | tr -d '"')
+echo "$res"
