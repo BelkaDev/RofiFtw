@@ -19,6 +19,7 @@ case "$API" in
 "ddg") prompt="Ddg: " ;; 
 "amazon") prompt="Amazon: " ;; 
 "archwiki") prompt="Archwiki: " ;; 
+"baidu") prompt="Baidu: " ;; 
 *) echo "unrecognized API" && exit 1 ;;
 esac 
 ###############
