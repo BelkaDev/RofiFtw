@@ -8,19 +8,19 @@ API="$1"
 #Full path to the handler script
 handler=$(dirname $0)/handler
 
- [ ! -f "$handler" ] && echo "invalid path to handler script" && exit 1
+[ ! -f "$handler" ] && echo "invalid path to handler script" && exit 1
 case "$API" in 
-"google") prompt="Google: " ;;
-"deezer") prompt="Music: " ;;
-"youtube") prompt="Youtube: " ;;
-"lastfm") prompt="Music: " ;; 
-"books") prompt="Books: " ;; 
-"wikipedia") prompt="Wikipedia: " ;; 
-"ddg") prompt="Ddg: " ;; 
-"amazon") prompt="Amazon: " ;; 
-"archwiki") prompt="Archwiki: " ;; 
-"baidu") prompt="Baidu: " ;; 
-*) echo "unrecognized API" && exit 1 ;;
+	"google") prompt="Google: " ;;
+	"deezer") prompt="Music: " ;;
+	"youtube") prompt="Youtube: " ;;
+	"lastfm") prompt="Music: " ;; 
+	"books") prompt="Books: " ;; 
+	"wikipedia") prompt="Wikipedia: " ;; 
+	"ddg") prompt="Ddg: " ;; 
+	"amazon") prompt="Amazon: " ;; 
+	"archwiki") prompt="Archwiki: " ;; 
+	"baidu") prompt="Baidu: " ;; 
+	*) echo "unrecognized API" && exit 1 ;;
 esac 
 ###############
 logfile="$(dirname $handler)/logfile.tmp" # logfile to communicate between two ends

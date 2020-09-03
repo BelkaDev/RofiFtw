@@ -3,7 +3,7 @@
 # Author: https://github.com/Belkadev
 
 urlencode() {
-echo ${1// /"%20"}
+	echo ${1// /"%20"}
 }
 
 #settings
