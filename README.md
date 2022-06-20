@@ -12,9 +12,6 @@ As of now, it supports the following websites:</br>
 * Google books
 </br>
 
-
-![demo](https://raw.githubusercontent.com/BelkaDev/Rofiftw/master/src/demo.gif)</br>
-
 ### Requirements
 * [rofi blocks ](https://github.com/OmarCastro/rofi-blocks)
  this is what makes the rofi interaction dynamic.
