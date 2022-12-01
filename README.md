@@ -47,10 +47,10 @@ of the wrapper script:
 
 ``` Bash
 case "$API" in 
-"google")  $BROWSER "https://www.google.com/search?q=$result" ;; 
-"deezer" | "lastfm")  play "$selection" ;; 
-"youtube") youtube "$selection" ;;
-"books") getBook  "$selection" ;; 
+	"google")  $BROWSER "https://www.google.com/search?q=$result" ;; 
+	"deezer" | "lastfm") play "$selection" ;; 
+	"youtube") youtube "$selection" ;;
+	"books") getBook  "$selection" ;; 
 esac
 ```
 

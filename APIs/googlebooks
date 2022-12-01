@@ -9,7 +9,7 @@ orderBy="relevance" # {relevance,newest}
 
 # doc url https://developers.google.com/books/docs/v1/using
 urlencode() {
-echo ${1// /"%20"}
+	echo ${1// /"%20"}
 }
 
 

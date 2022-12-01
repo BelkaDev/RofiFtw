@@ -26,17 +26,17 @@ logfile="$(dirname $0)/logfile.tmp"
 API=$(cat $logfile)
 rm "$logfile"
 case "$API" in 
-"ddg") search="$ddg_api" ; allowExcess=true ;; 
-"deezer") search="$deezer_api" ;;
-"youtube") search="$youtube_api" ; allowExcess=true ;;
-"google") search="$google_api" ; allowExcess=true ;;
-"books") search="$googlebooks_api" ;;
-"lastfm") search="$lastfm_api" ;;
-"wikipedia") search="$wikipedia_api" allowExcess=true ;;
-"amazon") search="$amazon_api"  ; allowExcess=true ;;
-"archwiki") search="$archwiki_api"  ; allowExcess=true ;;
-"baidu") search="$baidu_api"  ; allowExcess=true ;;
-*) echo "unrecognized api" && exit 1 ;; # unreachable
+	"ddg") search="$ddg_api" ; allowExcess=true ;; 
+	"deezer") search="$deezer_api" ;;
+	"youtube") search="$youtube_api" ; allowExcess=true ;;
+	"google") search="$google_api" ; allowExcess=true ;;
+	"books") search="$googlebooks_api" ;;
+	"lastfm") search="$lastfm_api" ;;
+	"wikipedia") search="$wikipedia_api" allowExcess=true ;;
+	"amazon") search="$amazon_api"  ; allowExcess=true ;;
+	"archwiki") search="$archwiki_api"  ; allowExcess=true ;;
+	"baidu") search="$baidu_api"  ; allowExcess=true ;;
+	*) echo "unrecognized api" && exit 1 ;; # unreachable
 esac
 
 suggestions=""
@@ -44,7 +44,7 @@ default_custom_format="{{name_enum}}:{{value}}"
 custom_format="${format:-$default_custom_format}"
 
 urlencode() {
-echo ${1// /"%20"}
+	echo ${1// /"%20"}
 }
 
 convertJson(){
@@ -52,18 +52,18 @@ convertJson(){
 }
 
 removeIllegal(){
-##### https://github.com/fogine/rofi-blocks/commit/9f45da637baf0f0d342c2e2957535564aa622164
-##### if you care about special characters, the patch above
-##### fixes the issue in which they break rofi
-##### once installed you can omit this function 
-echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
+	##### https://github.com/fogine/rofi-blocks/commit/9f45da637baf0f0d342c2e2957535564aa622164
+	##### if you care about special characters, the patch above
+	##### fixes the issue in which they break rofi
+	##### once installed you can omit this function 
+	echo "$1" | tr -dc '[:alnum:][:space:]-\n\r'
 }
 
 fill_menu(){
 
 	JSON_LINES="$(convertJson "$suggestions")"
 
- 	TEXT=$(cat <<EOF | tr -d "\n" | tr -d "\t"  
+	TEXT=$(cat <<EOF | tr -d "\n" | tr -d "\t"  
 {
 	"event format":"${custom_format}",
 	"lines":[ 
@@ -72,24 +72,24 @@ fill_menu(){
 }
 EOF
 )
-	printf '%s\n' "$TEXT"
+printf '%s\n' "$TEXT"
 }
 
 echo '{"input action":"send"}'
 
 unset length i
 while IFS= read -r line; do
-((i++))
-[[ "$line" = 'SELECT'* ]] && selected=$(echo "$line" | cut -d':' -f2-) && break;
-print=$(echo "$line" | cut -d':' -f2-)
-#custom algorithm to reduce Api calls
-[[ "${#print}" < $length ]] && length="${#print}" && continue;
-length="${#print}"
-if (( i%refreshrate == 0 )) || [ ! -z $allowExcess ]; then suggestions="$(removeIllegal "$(bash $search $print)")"
+	((i++))
+	[[ "$line" = 'SELECT'* ]] && selected=$(echo "$line" | cut -d':' -f2-) && break;
+	print=$(echo "$line" | cut -d':' -f2-)
+	#custom algorithm to reduce Api calls
+	[[ "${#print}" < $length ]] && length="${#print}" && continue;
+	length="${#print}"
+	if (( i%refreshrate == 0 )) || [ ! -z $allowExcess ]; then suggestions="$(removeIllegal "$(bash $search $print)")"
 
-[[ "${line:0:1}" != '{' ]] && suggestions="${print}"$'\n'"$suggestions"
-fill_menu "$print"
-fi
+		[[ "${line:0:1}" != '{' ]] && suggestions="${print}"$'\n'"$suggestions"
+		fill_menu "$print"
+	fi
 done
 selected="$(tr '[:lower:]' '[:upper:]' <<< ${selected:0:1})${selected:1}"
 [ -z "$selected" ] && rm $logfile || printf "$selected" >"$logfile"
